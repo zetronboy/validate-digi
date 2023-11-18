@@ -1,6 +1,6 @@
 # validate-digi
 ## SUMMARY:
-Powershell script to validate the DIGI Connect EZ configuration against expected values.
+Powershell script to validate the [DIGI Connect EZ](https://www.digi.com/search?q=connect%20ez) configuration against expected values.
 Does not program the DIGI, just checks your settings against validations.cfg
 Will replace Jinja2 style {{variable}} it finds with key=value from ip.cfg
 Uses SSH to dump the config and itterates through each validation, testing against DIGI configuration.
@@ -19,6 +19,7 @@ Reads from the DIGI, assumes login username admin if not supplied. You must supp
 runs each of the validations.cfg lines after replacing {{key}} with values from <IP>.cfg, like a Jinja2 template.
 You can run the same validations.cfg against all your DIGI because they each have a <IP>.cfg with replacement values to expect.
 lines that dont match get a -FAIL. Edit the DIGI using web to correct and run again.
+supports a -config arg that will use a local text file containing DIGI config rather than SSH. Used for development.
 
 ## REQUIRES:
 PUTTY is required: Makes use of PLINK.EXE, part of a Putty install. Uses SSH to pull DIGI config. 
